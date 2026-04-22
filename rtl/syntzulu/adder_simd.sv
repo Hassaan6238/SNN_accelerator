@@ -1,0 +1,40 @@
+
+// This module describes SIMD Inference 
+// 4 small adders can be packed into signle DSP block
+
+// Note : SV constructs are used, Compile this with System Verilog Mode
+
+
+// Apply this attribute on the module definition
+(* use_dsp = "simd" *)
+module adder_simd
+    #(
+    parameter N = 2,    // Number of Adders
+    parameter W = 15   // Width of the Adders
+    )
+    (
+    input logic clk, en,
+    input logic [W-1:0] a_0, a_1,
+    input logic [W-1:0] b_0, b_1,
+    output logic signed [W:0] out_0,
+    output logic signed [W:0] out_1
+    );
+
+
+                   
+integer i;
+logic signed [W-1:0] a_r [N-1:0];
+logic signed [W-1:0] b_r [N-1:0];
+
+always @ (posedge clk)
+     if(en)
+      begin 
+      a_r[0] <= a_0;
+      b_r[0] <= b_0;
+      out_0 <= a_r[0] + b_r[0];
+      a_r[1] <= a_1;
+      b_r[1] <= b_1;
+      out_1 <= a_r[1] + b_r[1];
+      end   
+
+endmodule
