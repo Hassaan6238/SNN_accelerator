@@ -11,13 +11,13 @@ package config_pkg;
         parameter int CURRENT_DECAY_2 = 4096-4096;
         parameter int CURRENT_DECAY_3 = 4096-4096;
         parameter int CURRENT_DECAY_4 = 4096-4096;
-        parameter int VOLTAGE_DECAY_1 = 4096-41;
-        parameter int VOLTAGE_DECAY_2 = 4096-41;
-        parameter int VOLTAGE_DECAY_3 = 4096-41;
-        parameter int VOLTAGE_DECAY_4 = 4096-41;
-        parameter int THRESHOLD_1 = 39;
-        parameter int THRESHOLD_2 = 29;
-        parameter int THRESHOLD_3 = 32;
+        parameter int VOLTAGE_DECAY_1 = 4096-43;
+        parameter int VOLTAGE_DECAY_2 = 4096-43;
+        parameter int VOLTAGE_DECAY_3 = 4096-43;
+        parameter int VOLTAGE_DECAY_4 = 4096-42;
+        parameter int THRESHOLD_1 = 22;
+        parameter int THRESHOLD_2 = 18;
+        parameter int THRESHOLD_3 = 16;
         parameter int THRESHOLD_4 = 32767;
 
 endpackage

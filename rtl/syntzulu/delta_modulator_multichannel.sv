@@ -62,7 +62,7 @@ module delta_modulator_multichannel #(
       .RAM_WIDTH(WIDTH),        
       .RAM_DEPTH(CHANNELS),             
       .RAM_PERFORMANCE("LOW_LATENCY"), 
-	  .INIT_FILE({"sim/mem/",`PATH,"/delta.txt"})      
+	  .INIT_FILE({"delta.txt"})      
 	)
     delta_mem
      (

@@ -82,7 +82,7 @@ module servant_clock_gen
 					end
 				else 
 					begin // single clock	
-						/*
+						
 						SB_PLL40_PAD
 						pll
 							(
@@ -108,28 +108,28 @@ module servant_clock_gen
 							defparam pll.SHIFTREG_DIV_MODE = 2'b00;
 							defparam pll.PLLOUT_SELECT = "GENCLK";
 							defparam pll.ENABLE_ICEGATE = 1'b1;
-						*/
 						
-						SB_HFOSC 
-						hfosc 
-							( 
-							.CLKHFEN(low_power_mode), // andrebbe a zero per 100 us ma se a 6 MHz funziona lo stesso
-							.CLKHFPU(1'b1), 
-							.CLKHF(o_clk) 
-							); 
+						
+						// SB_HFOSC 
+						// hfosc 
+						// 	( 
+						// 	.CLKHFEN(low_power_mode), // andrebbe a zero per 100 us ma se a 6 MHz funziona lo stesso
+						// 	.CLKHFPU(1'b1), 
+						// 	.CLKHF(o_clk) 
+						// 	); 
 
 							// synthesis ROUTE_THROUGH_FABRIC= 1 
 							//the value can be either 0 or 1 
 
 							// Parameter CLKHF_DIV = "0b00" (default), "0b01", "0b10", "0b11" 
 							// 0b00 = 48 MHz, 0b01 = 24 MHz, 0b10 = 12 MHz, 0b11 = 6 MHz		
-							defparam hfosc.CLKHF_DIV = HFOSC; 			
+							// defparam hfosc.CLKHF_DIV = HFOSC; 			
 
-							assign o_half_clk = o_clk;
+							// assign o_half_clk = o_clk;
 							
 					end
 				
-					SB_LFOSC  u_lf_osc(.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(o_slow_clk));
+					// SB_LFOSC  u_lf_osc(.CLKLFPU(1'b1), .CLKLFEN(1'b1), .CLKLF(o_slow_clk));
 
 				end
 	endgenerate
