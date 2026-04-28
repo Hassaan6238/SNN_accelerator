@@ -67,7 +67,7 @@ module spiflash (
 	// 16 MB (128Mb) Flash
 	initial begin
 		if (!$value$plusargs("firmware=%s", firmware_file))
-			firmware_file = {"sim/mem/",`PATH,"/flash.txt"};
+			firmware_file = {"flash.txt"};
 		$readmemh(firmware_file, memory);
 	end
 

@@ -6,7 +6,7 @@ module servant_sim
    output logic	      q,
    input logic [2:0] buttons);
 
-   parameter memfile = "firmware/exe.hex";
+   parameter memfile = "exe.hex";
    parameter memsize = 8192;
    parameter with_csr = 1;
    parameter compressed = 0;
@@ -21,7 +21,7 @@ module servant_sim
      end
    */
 	
-	logic SPI_SS, SPI_MOSI, SPI_MISO, SPI_CLK;
+	wire SPI_SS, SPI_MOSI, SPI_MISO, SPI_CLK;
 
    service   
 	`ifndef PSIM	
@@ -41,8 +41,8 @@ module servant_sim
 				.o_txd()
 			); // change con service interface
 
-   //assign pc_adr = dut.wb_ibus_adr;
-   //assign pc_vld = dut.wb_ibus_ack;
+   //assign pc_adr = service_i.wb_ibus_adr;
+   //assign pc_vld = service_i.wb_ibus_ack;
 
 	spiflash spiflash_i(
 	.csb(SPI_SS),

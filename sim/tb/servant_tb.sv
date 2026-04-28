@@ -1,6 +1,6 @@
 module servant_tb;
 
-   parameter memfile = "firmware/exe.hex";
+   parameter memfile = "exe.hex";
    parameter memsize = 8192;
    parameter with_csr = 1;
 
@@ -30,10 +30,10 @@ module servant_tb;
 	  .buttons(buttons));
 
 
-parameter OUTPUT_FILE_TARGET = {"sim/results/",`PATH,"/snn_inference.txt"};
-parameter TARGET_FILE = {"sim/target/",`PATH,"/snn_inference.txt"};
-parameter TARGET_FILE_BINNING= {"sim/target/",`PATH,"/encoded_input.txt"};
-parameter OUTPUT_FILE_BINNING = {"sim/results/",`PATH,"/encoded_input.txt"};
+parameter OUTPUT_FILE_TARGET = {"snn_inference_output.txt"};
+parameter TARGET_FILE = {"snn_inference.txt"};
+parameter TARGET_FILE_BINNING= {"encoded_input.txt"};
+parameter OUTPUT_FILE_BINNING = {"encoded_input_output.txt"};
 
 parameter MAX_ERRORS = 1000;
 
@@ -44,6 +44,7 @@ integer f_out_target, f_out;
 integer f_out_snn_L1, f_t_L1;
 integer f_out_snn_L2, f_t_L2;
 integer f_out_snn_L3, f_t_L3;
+
 
 initial begin
  
